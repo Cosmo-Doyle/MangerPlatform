@@ -17,24 +17,49 @@ public class Project {
     private String leader_link;
 
     private String test_unit;
-
     private String contacter;
-
     private String review_date;
-
     private String contacter_link;
-
     private String start_and_end_time;
-
     private long total_price;
-
     private boolean sign_confidentialit;
-
     private Date test_time;
-
     private String protect_level;
-
     private Date sign_contract;
+    private Boolean review;
+
+    public enum Review_status {
+        WAIT_REVIEW {
+            public String getReview_status() {
+                return "待审核";
+            }
+        },
+        COMPLETE_REVIEW {
+            public String getReview_status() {
+                return "已完成";
+            }
+        };
+        public abstract String getReview_status();
+    }
+    public enum Test_status {
+        WAIT_TEST {
+            public String getTest_status() {
+                return "测评中";
+            }
+        },
+        COMPLETE_TEST {
+            public String getTest_status() {
+                return "已完成";
+            }
+        };
+        public abstract String getTest_status();
+    }
+
+    public enum System_number {
+        LEVER_TWO,
+        LEVEL_THREE,
+        LEVER_FOUR;
+    }
 
     public long getProject_id() {
         return project_id;
@@ -148,6 +173,14 @@ public class Project {
         this.sign_contract = sign_contract;
     }
 
+    public Boolean getReview() {
+        return review;
+    }
+
+    public void setReview(Boolean review) {
+        this.review = review;
+    }
+
     @Override
     public String toString() {
         return "Project{" +
@@ -165,20 +198,8 @@ public class Project {
                 ", test_time=" + test_time +
                 ", protect_level='" + protect_level + '\'' +
                 ", sign_contract=" + sign_contract +
+                ", review=" + review +
                 '}';
     }
 }
 
-enum test_status{
-
-}
-
-enum review_status{
-
-}
-
-enum system_number{
-    LEVER_TWO,
-    LEVEL_THREE,
-    LEVER_FOUR;
-}

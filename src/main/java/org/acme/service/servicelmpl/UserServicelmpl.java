@@ -18,7 +18,6 @@ public class UserServicelmpl implements UserService {
     }
     @Override
     public User loginService(String uname, String password) {
-
         //如果账号密码都对则返回登录的用户对象，若有一个错误则返回null
         User user =userDao.findByUnameAndPassword(uname,password);
         return user;

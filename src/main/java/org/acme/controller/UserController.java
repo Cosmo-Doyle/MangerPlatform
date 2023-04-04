@@ -48,6 +48,7 @@ public class UserController {
             return Result.error("000","不存在用户名，删除失败");
         }
     }
+
 //    @PostMapping("/update")
 //    public Result<User> updateController(@RequestParam String name, @RequestParam String key, @RequestParam String value) {
 //        User user = userService.updateService(name,key,value);
