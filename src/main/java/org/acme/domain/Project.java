@@ -1,7 +1,7 @@
 package org.acme.domain;
 
 import javax.persistence.*;
-import java.util.Date;
+
 
 @Table(name = "project")
 @Entity
@@ -23,9 +23,9 @@ public class Project {
     private String start_and_end_time;
     private long total_price;
     private boolean sign_confidentialit;
-    private Date test_time;
+    private String test_time;
     private String protect_level;
-    private Date sign_contract;
+    private String sign_contract;
     private Boolean review;
 
     public enum Review_status {
@@ -149,11 +149,11 @@ public class Project {
         this.sign_confidentialit = sign_confidentialit;
     }
 
-    public Date getTest_time() {
+    public String getTest_time() {
         return test_time;
     }
 
-    public void setTest_time(Date test_time) {
+    public void setTest_time(String test_time) {
         this.test_time = test_time;
     }
 
@@ -165,11 +165,11 @@ public class Project {
         this.protect_level = protect_level;
     }
 
-    public Date getSign_contract() {
+    public String getSign_contract() {
         return sign_contract;
     }
 
-    public void setSign_contract(Date sign_contract) {
+    public void setSign_contract(String sign_contract) {
         this.sign_contract = sign_contract;
     }
 

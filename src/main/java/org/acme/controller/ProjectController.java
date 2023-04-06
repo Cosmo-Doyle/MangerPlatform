@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import javax.annotation.Resource;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -62,6 +64,44 @@ public class ProjectController {
         }
     }
 
+    @GetMapping("/query/test_unit")
+    public Result<List<Project>> queryByTest_unitController(@RequestParam String searchContent) {
+        List<Project> project = projectService.findByTest_unitService(searchContent);
+        if (project != null) {
+            return Result.success(project, "查询成功");
+        } else {
+            return Result.error("222", "不存在工程，查询失败");
+        }
+    }
+
+    @GetMapping("/query/test_time")
+    public Result<List<Project>> queryByTest_timeController(@RequestParam String searchContent) {
+        List<Project> project = projectService.findByTest_timeService(searchContent);
+        if (project != null) {
+            return Result.success(project, "查询成功");
+        } else {
+            return Result.error("222", "不存在工程，查询失败");
+        }
+    }
+
+    @GetMapping("/query/protect_level")
+    public Result<List<Project>> queryByProtect_levelController(@RequestParam String searchContent) {
+        List<Project> project = projectService.findByProtect_levelService(searchContent);
+        if (project != null) {
+            return Result.success(project, "查询成功");
+        } else {
+            return Result.error("222", "不存在工程，查询失败");
+        }
+    }
+    @GetMapping("/query/sign_contract")
+    public Result<List<Project>> queryBySign_contractController(@RequestParam String searchContent) {
+        List<Project> project = projectService.findBySign_contractService(searchContent);
+        if (project != null) {
+            return Result.success(project, "查询成功");
+        } else {
+            return Result.error("222", "不存在工程，查询失败");
+        }
+    }
     @PatchMapping("/update")
     public Result<Project> updateProjectPartially(@RequestParam Long id, @RequestParam String projectName) {
         Project project = projectService.updateService(id,projectName);

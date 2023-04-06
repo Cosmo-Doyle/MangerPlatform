@@ -7,8 +7,9 @@ import org.acme.utils.Back;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-
 import javax.annotation.Resource;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -56,35 +57,31 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public List<Project> findByProjectNameService(String project_name) {
-        List<Project> list = projectDao.findProjectByProject_name(project_name);
-        Back back = new Back();
-        return back.projectSection(list);
+        return  projectDao.findProjectByProject_name(project_name);
     }
 
     @Override
     public List<Project> findByLeader_nameService(String leader_name) {
-        List<Project> list = projectDao.findProjectByLeader_name(leader_name);
-        Back back = new Back();
-        return back.projectSection(list);
+        return projectDao.findProjectByLeader_name(leader_name);
     }
 
     @Override
-    public List<Project> findByTest_unitService(String project_name) {
-        return null;
+    public List<Project> findByTest_unitService(String test_unit) {
+        return projectDao.findProjectByTest_unit(test_unit);
     }
 
     @Override
-    public List<Project> findByTest_timeService(String project_name) {
-        return null;
+    public List<Project> findByTest_timeService(String test_time) {
+        return projectDao.findProjectByTest_time(test_time);
     }
 
     @Override
-    public List<Project> findByProtect_levelService(String project_name) {
-        return null;
+    public List<Project> findByProtect_levelService(String protect_level) {
+        return projectDao.findProjectByProtect_level(protect_level);
     }
 
     @Override
-    public List<Project> findBySign_contractService(String project_name) {
-        return null;
+    public List<Project> findBySign_contractService(String sign_contract) {
+        return  projectDao.findProjectBySign_contract(sign_contract);
     }
 }

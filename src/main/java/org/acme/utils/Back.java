@@ -5,6 +5,7 @@ import org.acme.domain.Project;
 import java.util.ArrayList;
 import java.util.List;
 
+//返回某些属性
 public class Back{
     public List<Project> projectSection(List<Project> list){
         List<Project> result=new ArrayList<>();

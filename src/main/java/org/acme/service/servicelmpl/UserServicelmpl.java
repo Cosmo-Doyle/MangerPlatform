@@ -1,12 +1,15 @@
 package org.acme.service.servicelmpl;
 
 import org.acme.domain.User;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.acme.repository.UserDao;
 import org.acme.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+//import org.springframework.util.DigestUtils;
 
 import javax.annotation.Resource;
+import java.util.Arrays;
 
 @Service
 public class UserServicelmpl implements UserService {
@@ -29,7 +32,10 @@ public class UserServicelmpl implements UserService {
             //无法注册
             return null;
         }else {
-            //返回创建好的用户对象（带uid）
+            //加密密码
+            String md5str= DigestUtils.sha3_256Hex(user.getPassword());
+            user.setPassword(md5str);
+            //保存至数据库
             User newUser = userDao.save(user);
             if(newUser!=null){
                 newUser.setPassword("");

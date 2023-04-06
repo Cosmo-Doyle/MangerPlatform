@@ -4,17 +4,19 @@ import org.acme.domain.Project;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 public interface ProjectService {
     Project createService(Project project);
 
     List<Project> findByProjectNameService(String project_name);
-    List<Project> findByLeader_nameService(String project_name);
-    List<Project> findByTest_unitService(String project_name);
-    List<Project> findByTest_timeService(String project_name);
-    List<Project> findByProtect_levelService(String project_name);
-    List<Project> findBySign_contractService(String project_name);
+    List<Project> findByLeader_nameService(String leader_name);
+    List<Project> findByTest_unitService(String test_unit);
+    List<Project> findByTest_timeService(String test_time);
+    List<Project> findByProtect_levelService(String protect_level);
+    List<Project> findBySign_contractService(String sign_contract);
 
     int deleteService(Project project);
 
