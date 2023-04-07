@@ -1,60 +1,150 @@
-# Logindemo
+## 数据结构
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+### 用户
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+| 变量             |        |
+| ---------------- | ------ |
+| uid(long)        | 用户id |
+| uname(string)    | 用户名 |
+| password(string) | 密码   |
 
-## Running the application in dev mode
+### 项目
 
-You can run your application in dev mode that enables live coding using:
-```shell script
-./mvnw compile quarkus:dev
-```
+| 变量                        |                      |
+| --------------------------- | -------------------- |
+| project_id(long)            | 项目ID               |
+| project_name(string)        | 项目名称             |
+| leader_name(string)         | 项目负责人           |
+| leader_link(string)         | 项目负责人的联系方式 |
+| test_unit(string)           | 被测单位             |
+| contacter(string)           | 联系人               |
+| review_date(string)         | 省等保办项目审核日期 |
+| contacter_link(string)      | 联系人的联系方式     |
+| start_and_end_time(string)  | 计划测评工期起止日期 |
+| total_price(long)           | 合同总价             |
+| sign_confidentialit(boolen) | 是否签订保密协议     |
+| test_time(date)             | 测评时间             |
+| protect_level(string)       | 保护等级             |
+| sign_contract(date)         | 合同时间             |
+| review(boolen)              | 审核是否通过         |
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+### 系统
 
-## Packaging and running the application
+| 变量                              |              |
+| --------------------------------- | ------------ |
+| system_id(long)                   | 系统id       |
+| system_name(string)               | 系统名称     |
+| test_unit(string)                 | 被测单位     |
+| belong_to_project(string)         | 所属项目     |
+| filing_certificate_number(string) | 备案证明编号 |
+| protect_level(string)             | 保护等级     |
+| test_status(string)               | 测评状态     |
 
-The application can be packaged using:
-```shell script
-./mvnw package
-```
-It produces the `quarkus-run.jar` file in the `target/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `target/quarkus-app/lib/` directory.
+### 测评师
 
-The application is now runnable using `java -jar target/quarkus-app/quarkus-run.jar`.
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./mvnw package -Dquarkus.package.type=uber-jar
-```
 
-The application, packaged as an _über-jar_, is now runnable using `java -jar target/*-runner.jar`.
 
-## Creating a native executable
 
-You can create a native executable using: 
-```shell script
-./mvnw package -Pnative
-```
+## 共用接口
 
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using: 
-```shell script
-./mvnw package -Pnative -Dquarkus.native.container-build=true
-```
+### 1.用户管理
 
-You can then execute your native executable with: `./target/Logindemo-1.0.0-SNAPSHOT-runner`
+请求登录‘
 
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/maven-tooling.
+POST /user/login
 
-## Related Guides
+![image-20230407110222450](Readme/image-20230407110222450.png)
 
-- RESTEasy Reactive ([guide](https://quarkus.io/guides/resteasy-reactive)): A JAX-RS implementation utilizing build time processing and Vert.x. This extension is not compatible with the quarkus-resteasy extension, or any of the extensions that depend on it.
+请求注册
 
-## Provided Code
+POST /user/register
 
-### RESTEasy Reactive
+注销
 
-Easily start your Reactive RESTful Web Services
+DELETE /user/delete
 
-[Related guide section...](https://quarkus.io/guides/getting-started-reactive#reactive-jax-rs-resources)
+### 2.项目管理
+
+#### 新建项目
+
+POST /project/create
+
+{
+
+  "project_name":"综合业务信息系统",
+
+  "leader_name":"侯伟",
+
+  "leader_link":"1888888888",
+
+  "test_unit":"招商银行股份有限公司",
+
+  "contacter":"招商",
+
+  "review_date":"2021-11-10",
+
+  "contacter_link":"2888888",
+
+  "start_and_end_time":"2021-11-10~2022-11-10",
+
+  "total_price":"10000000000",
+
+  "sign_confidentialit":"true",
+
+  "test_time":"2021-11-10",
+
+  "protect_level":"二级",
+
+  "sign_contract":"2021-11-10",
+
+  "review":"true"
+
+}
+
+
+
+#### 获取项目信息（key都为searchContent）
+
+根据项目名称 获取项目信息
+
+GET /project/query/project_name
+
+根据项目负责人 获取项目信息
+
+GET /project/query/leader_name
+
+根据被测单位 获取项目信息
+
+GET /project/query/test_unit
+
+根据测评时间 获取项目信息
+
+GET /project/query/test_time
+
+根据合同签署时间 获取项目信息
+
+GET /project/query/sign_contract
+
+
+
+#### 删除项目信息
+
+DELETE /project/delete
+
+#### 修改项目属性
+
+根据id修改项目属性
+
+PATCH /project/update
+
+{
+
+
+
+}
+
+### 测评师管理
+
+
+

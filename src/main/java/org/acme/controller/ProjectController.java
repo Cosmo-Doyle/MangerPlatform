@@ -35,10 +35,10 @@ public class ProjectController {
     }
 
     @DeleteMapping("/delete")
-    public Result<Project> removeController(@RequestBody Project oldPreject) {
-        int flag = projectService.deleteService(oldPreject);
+    public Result<Project> removeController(@RequestBody Project oldProject) {
+        int flag = projectService.deleteService(oldProject);
         if (flag == 1) {
-            return Result.success(oldPreject, "删除项目成功");
+            return Result.success(oldProject, "删除项目成功");
         } else {
             return Result.error("000", "不存在项目，删除失败");
         }

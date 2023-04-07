@@ -19,7 +19,7 @@ public interface ProjectDao extends JpaRepository<Project, Long> {
 
     void deleteByProject_id(long project_id);
 
-    List<Project> findProjectByProject_name(String leader_name);
+    List<Project> findProjectByProject_name(String project_name);
     List<Project> findProjectByLeader_name(String leader_name);
     List<Project> findProjectByTest_unit(String test_unit);
     List<Project> findProjectByTest_time(String test_time);
