@@ -50,19 +50,25 @@
 
 ### 1.用户管理
 
-请求登录‘
-
-POST /user/login
-
-![image-20230407110222450](Readme/image-20230407110222450.png)
-
 请求注册
 
 POST /user/register
 
+![image-20230407110222450](Readme/image-20230407110222450.png)
+
+请求登录‘
+
+POST /user/login
+
+![image-20230407111158478](Readme/image-20230407111158478.png)
+
+
+
 注销
 
 DELETE /user/delete
+
+![image-20230407111228378](Readme/image-20230407111228378.png)
 
 ### 2.项目管理
 
@@ -102,7 +108,7 @@ POST /project/create
 
 }
 
-
+![image-20230407111320446](Readme/image-20230407111320446.png)
 
 #### 获取项目信息（key都为searchContent）
 
@@ -110,9 +116,13 @@ POST /project/create
 
 GET /project/query/project_name
 
+![image-20230407111513093](Readme/image-20230407111513093.png)
+
 根据项目负责人 获取项目信息
 
 GET /project/query/leader_name
+
+![image-20230407111559093](Readme/image-20230407111559093.png)
 
 根据被测单位 获取项目信息
 
@@ -126,11 +136,11 @@ GET /project/query/test_time
 
 GET /project/query/sign_contract
 
-
-
 #### 删除项目信息
 
 DELETE /project/delete
+
+![image-20230407111641741](Readme/image-20230407111641741.png)
 
 #### 修改项目属性
 
@@ -138,13 +148,17 @@ DELETE /project/delete
 
 PATCH /project/update
 
-{
+![image-20230407111724219](Readme/image-20230407111724219.png)
+
+### 3.系统管理
+
+新增系统
+
+POST /system/create
 
 
 
-}
-
-### 测评师管理
+### 4.测评师管理
 
 
 

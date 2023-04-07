@@ -22,7 +22,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public Project createService(Project project) {
         if (projectDao.findByProject_name(project.getProject_name()) != null) {
-            //条件无法新增
+            //有项目名称相同的，则无法新增
             return null;
         } else {
             Project newProject = projectDao.save(project);
@@ -33,6 +33,7 @@ public class ProjectServiceImpl implements ProjectService {
     @Override
     public int deleteService(Project project) {
         if(projectDao.findByProject_id(project.getProject_id())!=null){
+            //存在项目，则可删除该项目
             projectDao.deleteByProject_id(project.getProject_id());
             return 1;
         }else{
