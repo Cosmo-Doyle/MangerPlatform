@@ -16,7 +16,6 @@ public class ProjectController {
     private ProjectService projectService;
 
     @Autowired
-//    @Qualifier(value="projectService")
     public void setProjectService(ProjectService projectService) {
         this.projectService = projectService;
     }

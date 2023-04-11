@@ -18,8 +18,9 @@ public class CheckPassword {
         if(password.matches(REG_UPPERCASE))i++;
         if(password.matches(REG_SYMBOL))i++;
 
-        if(i<2) return false;
-
-        return true;
+        return i>3;
+//        if(i<=3) return false;
+//
+//        return true;
     }
 }
