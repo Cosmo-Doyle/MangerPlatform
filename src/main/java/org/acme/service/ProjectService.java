@@ -2,10 +2,6 @@ package org.acme.service;
 
 import org.acme.domain.Project;
 import org.springframework.data.jpa.repository.Modifying;
-import org.springframework.data.jpa.repository.Query;
-
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 public interface ProjectService {

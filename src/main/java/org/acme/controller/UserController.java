@@ -35,7 +35,7 @@ public class UserController {
         if (user != null) {
             return Result.success(user, "注册成功！");
         } else {
-            return Result.error("456", "用户名已存在！");
+            return Result.error("456", "用户名已存在或密码不符合规范");
         }
     }
 

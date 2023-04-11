@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.Arrays;
 
+import static org.acme.utils.CheckPassword.isPswComplex;
+
 @Service
 public class UserServicelmpl implements UserService {
     @Resource
@@ -28,20 +30,19 @@ public class UserServicelmpl implements UserService {
     }
     @Override
     public User registService(User user) {
-        //当新用户的用户名已存在时
-        if(userDao.findByUname(user.getUname())!=null){
-            //无法注册
-            return null;
-        }else {
-            //加密密码
-            String md5str= DigestUtils.sha3_256Hex(user.getPassword());
-            user.setPassword(md5str);
+        //用户名未拥有且密码复杂才允许注册
+        if(userDao.findByUname(user.getUname())==null&&isPswComplex(user.getPassword())){
+            String sha3_256str= DigestUtils.sha3_256Hex(user.getPassword());
+            user.setPassword(sha3_256str);
             //保存至数据库
             User newUser = userDao.save(user);
             if(newUser!=null){
                 newUser.setPassword("");
             }
             return newUser;
+        }else {
+            //加密密码
+            return null;
         }
     }
     @Override
@@ -53,8 +54,4 @@ public class UserServicelmpl implements UserService {
             return 0;
         }
     }
-//    @Override
-//    public User updateService(String name, String key, Object value) {
-//        return null;
-//    }
 }

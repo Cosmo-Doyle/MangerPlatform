@@ -6,10 +6,6 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-
-import javax.transaction.Transactional;
-import java.time.LocalDate;
-import java.util.Date;
 import java.util.List;
 
 @Repository

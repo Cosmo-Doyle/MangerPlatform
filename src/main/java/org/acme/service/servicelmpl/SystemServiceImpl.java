@@ -1,6 +1,5 @@
 package org.acme.service.servicelmpl;
 
-import org.acme.domain.Project;
 import org.acme.domain.System;
 import org.acme.repository.SystemDao;
 import org.acme.service.SystemService;

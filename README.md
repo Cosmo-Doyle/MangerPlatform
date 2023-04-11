@@ -152,11 +152,25 @@ PATCH /project/update
 
 ### 3.系统管理
 
-新增系统
+#### 新增系统
 
 POST /system/create
 
+{
 
+  "system_name":"骨干网络系统",
+
+  "test_unit":"招商银行股份有限公司",
+
+  "belong_to_project":"招商银行股份有限公司",
+
+  "filing_certificate_number":"32051222010-00001",
+
+  "protect_level":"第三级",
+
+  "test_status":"已完成"
+
+}![image-20230407113939440](Readme/image-20230407113939440.png)
 
 ### 4.测评师管理
 
